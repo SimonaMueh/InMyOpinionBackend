@@ -1,6 +1,8 @@
 buildscript {
 	ext {
 		springBootVersion = '1.5.4.RELEASE'
+		 hibernateVersion = '5.2.8.Final'
+        jacksonDateTimeVersion = '2.8.7'
 	}
 	repositories {
 		mavenCentral()
@@ -21,6 +23,8 @@ repositories {
 	mavenCentral()
 }
 
+// Special syntax for overriding spring-boot-dependencies
+ext['hibernate.version'] = hibernateVersion
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -30,4 +34,16 @@ dependencies {
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	
+	    // heroku
+    compile('com.h2database:h2')
+//    runtime('com.h2database:h2')
+
+    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonDateTimeVersion}')
+    compile('org.hibernate:hibernate-java8:${hibernateVersion}')
+
+
+
 }
+
+
