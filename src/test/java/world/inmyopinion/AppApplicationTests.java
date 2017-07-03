@@ -1,4 +1,4 @@
-package world.inmyopinion.app;
+package world.inmyopinion;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

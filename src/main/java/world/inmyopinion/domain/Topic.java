@@ -34,7 +34,6 @@ public class Topic implements Serializable {
 	private String text;
 	
 	@ManyToOne
-	@Column(nullable = false)
 	private Category category;
 	
 	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
@@ -53,18 +52,17 @@ public class Topic implements Serializable {
 		
 	}
 	
-	public Topic(Long id, String text, Category category, String token, LocalDateTime dateCreated){
+	public Topic(Long id, String text, Category category, String token){
 		this.id = id;
 		this.text = text;
 		this.category = category;
 		this.token = token;
-		this.dateCreated = dateCreated;
 		
 	}
 	
 	
-	public Topic( String text, Category category, String token, LocalDateTime dateCreated) {
-	        this( null, text, category, token, dateCreated);
+	public Topic( String text, Category category, String token) {
+	        this( null, text, category, token);
 	    }
 
 }
