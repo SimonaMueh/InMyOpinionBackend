@@ -23,7 +23,7 @@ public class DefaultTopicService implements TopicService {
 	}
 		
 	@Override
-	//ask someone why this is not working
+	
 	public Topic findById(Long id) {
 		return repository.findById(id)
 				.orElseThrow(() -> new EntityNotFoundException("Could not find Topic with ID [" + id + "]"));

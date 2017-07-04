@@ -13,7 +13,7 @@ public interface CategoryRepository extends JpaRepository<Category, Long>  {
 	
 	Optional<Category> findbyId(Long id);
 	
-	List<Category> findByText(String categoryName);
+	List<Category> findByTextIgnoreCaseContainign(String categoryName);
 	
 	void deleteById(Long id);
 	

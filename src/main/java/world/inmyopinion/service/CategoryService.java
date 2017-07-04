@@ -8,7 +8,7 @@ public interface CategoryService {
 
 	Category findById (Long id);
 		
-	List<Category> findByText(String categoryName);
+	List<Category> findByTextIgnoreCaseContaining(String categoryName);
 	
 	void deleteById(Long id);
 	
