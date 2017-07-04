@@ -2,8 +2,9 @@ package world.inmyopinion.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import world.inmyopinion.domain.Category;
+
 import world.inmyopinion.domain.Topic;
+
 
 public interface TopicService {
 	

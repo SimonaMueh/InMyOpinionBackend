@@ -27,11 +27,12 @@ public class TopicServiceTest {
 	@Autowired 
 	TopicRepository repository;
 	
-	private static final int TOPICS_IN_TEST_DATA = 11;
+	private static final int TOPICS_IN_TEST_DATA = 3;
 	
 	@Test
 	public void findAll() {
-		assertThat(service.findAll()).hasSize(TOPICS_IN_TEST_DATA);
+//		assertThat(service.findAll()).hasSize(TOPICS_IN_TEST_DATA);
+		assertThat(repository.findAll().size()).isEqualTo(TOPICS_IN_TEST_DATA);
 	}
 
 
