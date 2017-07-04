@@ -1,8 +1,6 @@
-
 delete from categories;
 delete from topics;
 delete from votes;
-
 
 INSERT INTO categories (id, text) VALUES (1, 'world');
 INSERT INTO categories (id, text) VALUES (2, 'politics');
@@ -16,8 +14,6 @@ INSERT INTO categories (id, text) VALUES (9, 'news');
 INSERT INTO categories (id, text) VALUES (10,'food');
 INSERT INTO categories (id, text) VALUES (11,'music');
 
-
-
 INSERT INTO topics (id, date_created, text, token, category_id) VALUES (1, { ts '1950-01-26 00:00:00.00'}, 'I like  pink. \n', '1475eace-926a-45ee-b954-e72bfbb98ae3', 4);
 INSERT INTO topics (id, date_created, text, token, category_id) VALUES (2, { ts '1945-07-31 00:00:00.00'}, 'I like chinese food. \n', '8df15654-21f2-42ae-85f0-d7802c8a6d4c', 2);
 INSERT INTO topics (id, date_created, text, token, category_id) VALUES (3, { ts '1936-05-16 00:00:00.00'}, 'I like tattoos. \n', 'a2873348-029b-4a84-86f5-932aa5f80331', 3);
@@ -29,8 +25,6 @@ INSERT INTO topics (id, date_created, text, token, category_id) VALUES (8, { ts 
 INSERT INTO topics (id, date_created, text, token, category_id) VALUES (9, { ts '1924-12-17 00:00:00.00'}, 'I like tomatoes.\n', '18254258-bb8f-4bf9-9f63-9a6100bf2ab7', 10);
 INSERT INTO topics (id, date_created, text, token, category_id) VALUES (10,{ ts '1929-01-20 00:00:00.00'}, 'I like rain.\n', '32d18247-f96b-42c4-a71f-66d0c1b40513', 3);
 INSERT INTO topics (id, date_created, text, token, category_id) VALUES (11,{ ts '1927-01-06 00:00:00.00'}, 'I like the sea.\n', '8e4abe34-24ed-412d-8553-61825cc710ae', 5);
-
-
 
 INSERT INTO votes (id, date_created, ip, selection, topic_id) VALUES (1, { ts '1928-08-17 00:00:00.00' }, '3.86.150.224', 1, 94);
 INSERT INTO votes (id, date_created, ip, selection, topic_id) VALUES (2, { ts '1939-10-04 00:00:00.00' }, '91.114.43.52', 0, 2);
