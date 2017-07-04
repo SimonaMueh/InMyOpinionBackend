@@ -24,9 +24,13 @@ public class TopicServiceTest {
 	@Autowired
 	TopicService service;
 	
+	@Autowired
+	CategoryService categoryService;
+	
 	@Autowired 
 	TopicRepository repository;
-	
+
+
 	private static final int TOPICS_IN_TEST_DATA = 3;
 	
 	@Test

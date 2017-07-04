@@ -24,13 +24,12 @@ public class DefaultCategoryService implements CategoryService {
 
 	@Override
 	public Category findById(Long id) {
-		return repository.findbyId(id)
-				.orElseThrow(() -> new EntityNotFoundException("Could not find Category with ID [" + id + "]"));
+		return repository.findById(id);
 	}
 
 	@Override
 	public List<Category> findByTextIgnoreCaseContaining(String categoryName) {
-		return repository.findByTextIgnoreCaseContainign(categoryName);
+		return repository.findByTextIgnoreCaseContaining(categoryName);
 	}
 
 

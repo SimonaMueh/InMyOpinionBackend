@@ -1,4 +1,3 @@
-
 INSERT INTO categories (id, text) VALUES (1, 'world');
 INSERT INTO categories (id, text) VALUES (2, 'politics');
 INSERT INTO categories (id, text) VALUES (3, 'people');
