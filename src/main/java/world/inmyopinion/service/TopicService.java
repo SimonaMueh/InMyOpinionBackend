@@ -12,7 +12,7 @@ public interface TopicService {
 	
 	Topic findById(Long id);
 	
-	List<Topic> findByCategoryIgnoreCaseContaining(Category category);
+	List<Topic> findByCategory(String categoryName);
 	
 	List<Topic> findByToken(String token);
 	

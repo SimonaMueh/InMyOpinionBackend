@@ -1,5 +1,6 @@
-delete from categories;
+
 delete from topics;
+delete from categories;
 delete from votes;
 
 INSERT INTO categories (id, text) VALUES (1, 'world');

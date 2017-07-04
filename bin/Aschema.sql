@@ -1,5 +1,6 @@
-	drop table categories if exists;
+
     drop table topics if exists;
+    drop table categories if exists;
     drop table votes if exists;
 
     

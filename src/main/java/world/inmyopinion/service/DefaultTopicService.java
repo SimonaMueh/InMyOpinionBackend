@@ -31,8 +31,8 @@ public class DefaultTopicService implements TopicService {
 	}
 
 	@Override
-	public List<Topic> findByCategoryIgnoreCaseContaining(Category category) {
-		return repository.findByCategoryIgnoreCaseContaining(category);
+	public List<Topic> findByCategory(String categoryName) {
+		return repository.findByCategory(categoryName);
 	}
 
 	@Override

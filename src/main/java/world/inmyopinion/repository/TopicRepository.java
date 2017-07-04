@@ -17,7 +17,7 @@ public interface TopicRepository extends JpaRepository<Topic, Long> {
 	
 	Optional<Topic> findById(Long id);
 	
-	List<Topic> findByCategoryIgnoreCaseContaining(Category category);
+	List<Topic> findByCategory(String categoryName);
 	
 	List<Topic> findByToken(String token);
 	
@@ -27,6 +27,5 @@ public interface TopicRepository extends JpaRepository<Topic, Long> {
 	
 	void deleteByToken(String token);
 	
-	Topic createNew(Topic topic);
 
 }
