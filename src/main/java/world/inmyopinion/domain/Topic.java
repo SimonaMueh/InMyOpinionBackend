@@ -17,11 +17,13 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "topics")
 @Data
 @EqualsAndHashCode(exclude = "id")
+@ToString(exclude = "votes")
 public class Topic implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -52,6 +54,17 @@ public class Topic implements Serializable {
 		
 	}
 	
+
+	public Topic(Long id, String text, Category category, List<Vote> votes, String token, LocalDateTime dateCreated) {
+		this.id = id;
+		this.text = text;
+		this.category = category;
+		this.votes = votes;
+		this.token = token;
+		this.dateCreated = dateCreated;
+	}
+	
+	
 	public Topic(Long id, String text, Category category, String token){
 		this.id = id;
 		this.text = text;
@@ -64,5 +77,6 @@ public class Topic implements Serializable {
 	public Topic( String text, Category category, String token) {
 	        this( null, text, category, token);
 	    }
+
 
 }

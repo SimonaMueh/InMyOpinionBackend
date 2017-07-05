@@ -25,17 +25,16 @@ public class DefaultTopicService implements TopicService {
 	@Override
 	
 	public Topic findById(Long id) {
-		return repository.findById(id)
-				.orElseThrow(() -> new EntityNotFoundException("Could not find Topic with ID [" + id + "]"));
+		return repository.findById(id);
 	}
 
-	@Override
-	public List<Topic> findByCategory(String categoryName) {
-		return repository.findByCategory(categoryName);
-	}
+//	@Override
+//	public List<Topic> findByCategory(Long id) {
+//		return repository.findByCategory(id);
+//	}
 
 	@Override
-	public List<Topic> findByToken(String token) {
+	public Topic findByToken(String token) {
 		return repository.findByToken(token);
 	}
 
@@ -52,16 +51,6 @@ public class DefaultTopicService implements TopicService {
 	@Override
 	public void deleteByToken(String token) {
 		repository.deleteByToken(token);
-	}
-
-	@Override
-	public Topic createNew(Topic topic) {
-		// 2 steps before creating the topic in database:
-		// First, set id to null to make sure we're creating a new topic and not
-		// updating an existing one.
-		topic.setId(null);
-		// Now we store the topic in the database
-		return repository.save(topic);
 	}
 
 	@Override

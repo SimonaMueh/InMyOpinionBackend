@@ -15,11 +15,13 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "categories")
 @Data
 @EqualsAndHashCode(exclude = "id")
+@ToString(exclude = "topics")
 public class Category implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -31,22 +33,32 @@ public class Category implements Serializable {
 	@Column(nullable = false, length = 75)
 	private String text;
 	
-	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	private List<Topic> topic = new ArrayList<>();
+	private List<Topic> topics = new ArrayList<>();
 	
-   
+	
 	public Category() {
-		
 	}
 	
-	public Category(Long id, String text){
+	public Category(Long id, String text, List<Topic> topics) {
 		this.id = id;
-		this.text = text;	
+		this.text = text;
+		this.topics = topics;
 	}
 	
+//	public Category(Long id, String text){
+//		this.id = id;
+//		this.text = text;	
+//	}
+//	
 	public Category( String text) {
-	        this( null, text);
+	        this( null, text, null);
 	    }
+	
 
+	public void addTopic(Topic topic) {
+		topic.setCategory(this);
+		getTopics().add(topic);
+	}
+	
 }

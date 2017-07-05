@@ -2,13 +2,12 @@ package world.inmyopinion.service;
 
 import java.util.List;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import world.inmyopinion.domain.Category;
+import world.inmyopinion.domain.Topic;
 import world.inmyopinion.repository.CategoryRepository;
 
 @Transactional(readOnly = true)
@@ -32,11 +31,9 @@ public class DefaultCategoryService implements CategoryService {
 		return repository.findByTextIgnoreCaseContaining(categoryName);
 	}
 
-
 	@Override
 	public void deleteById(Long id) {
 		repository.deleteById(id);
-		
 	}
 
 	@Override
@@ -48,6 +45,12 @@ public class DefaultCategoryService implements CategoryService {
 	@Override
 	public List<Category> findAll() {
 		return repository.findAll();
+	}
+
+	@Override
+	public Category createNewTopic(Topic topic, Category category) {
+		category.addTopic(topic);
+		return category;
 	}
 
 

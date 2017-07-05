@@ -13,9 +13,9 @@ public interface TopicService {
 	
 	Topic findById(Long id);
 	
-	List<Topic> findByCategory(String categoryName);
+//	List<Topic> findByCategory(Long id);
 	
-	List<Topic> findByToken(String token);
+	Topic findByToken(String token);
 	
 	List<Topic> findByTextIgnoreCaseContaining(String text);
 	
@@ -23,7 +23,7 @@ public interface TopicService {
 	
 	void deleteByToken(String token);
 	
-	Topic createNew(Topic topic);
+//	Topic createNew(Topic topic);
 	
 	List<Topic> findAll();	
 	

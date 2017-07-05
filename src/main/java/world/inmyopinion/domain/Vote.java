@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name = "votes")
@@ -41,6 +42,14 @@ public class Vote implements Serializable {
 		
 	}
 	
+	public Vote(Long id, Topic topic, Boolean selection, String ip, LocalDateTime dateCreated) {
+		this.id = id;
+		this.topic = topic;
+		this.selection = selection;
+		this.ip = ip;
+		this.dateCreated = dateCreated;
+	}
+	
 	public Vote(Long id, Topic topic, Boolean selection){
 		this.id = id;
 		this.topic = topic;	
@@ -50,5 +59,7 @@ public class Vote implements Serializable {
 	public Vote( Topic topic, Boolean selection) {
 	        this(null, topic, selection);
 	    }
+
+	
 
 }
