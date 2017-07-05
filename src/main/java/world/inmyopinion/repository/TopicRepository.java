@@ -10,7 +10,7 @@ import world.inmyopinion.domain.Topic;
 @Repository
 public interface TopicRepository extends JpaRepository<Topic, Long> {
 	
-	// Optional does not return null but throws NoSuchElemetException
+//  Optional does not return null but throws NoSuchElemetException
 	
 	Topic findById(Long id);
 	

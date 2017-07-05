@@ -2,13 +2,12 @@ package world.inmyopinion.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import world.inmyopinion.domain.Topic;
+import world.inmyopinion.domain.Vote;
 import world.inmyopinion.repository.TopicRepository;
 
 @Transactional(readOnly = true)
@@ -58,5 +57,10 @@ public class DefaultTopicService implements TopicService {
 		return repository.findAll();
 	}
 	
+	@Override
+	public Topic createNewVote(Vote vote, Topic topic) {
+		topic.addVote(vote);
+		return topic;
+	}
 
 }

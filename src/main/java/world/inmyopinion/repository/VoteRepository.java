@@ -12,9 +12,9 @@ import world.inmyopinion.domain.Vote;
 @Repository
 public interface VoteRepository extends JpaRepository<Vote, Long>{
 
-	Optional<Vote> findById(Long id);
+	Vote findById(Long id);
 	
-	List<Vote> findByTopic(Topic topic);
+//	List<Vote> findByTopic(Topic topic);
 	
 	List<Vote> findByIp(String ip);
 

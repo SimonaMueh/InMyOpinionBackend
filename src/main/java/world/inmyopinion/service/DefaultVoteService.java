@@ -25,14 +25,14 @@ public class DefaultVoteService implements VoteService {
 
 	@Override
 	public Vote findById(Long id) {
-		return repository.findById(id)
-				.orElseThrow(() -> new EntityNotFoundException("Could not find Vote with ID [" + id + "]"));
+		return repository.findById(id);
+//				.orElseThrow(() -> new EntityNotFoundException("Could not find Vote with ID [" + id + "]"));
 	}
 
-	@Override
-	public List<Vote> findByTopic(Topic topic) {
-		return repository.findByTopic(topic);
-	}
+//	@Override
+//	public List<Vote> findByTopic(Topic topic) {
+//		return repository.findByTopic(topic);
+//	}
 
 	@Override
 	public List<Vote> findByIp(String ip) {

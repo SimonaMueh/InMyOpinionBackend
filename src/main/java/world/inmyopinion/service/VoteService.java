@@ -8,7 +8,7 @@ public interface VoteService {
 	
 	Vote findById(Long id);
 	
-	List<Vote> findByTopic(Topic topic);
+//	List<Vote> findByTopic(Topic topic);
 	
 	List<Vote> findByIp(String ip);
 	

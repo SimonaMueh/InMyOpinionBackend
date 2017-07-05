@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import world.inmyopinion.domain.Topic;
+import world.inmyopinion.domain.Vote;
 
 
 public interface TopicService {
@@ -25,7 +26,8 @@ public interface TopicService {
 	
 //	Topic createNew(Topic topic);
 	
-	List<Topic> findAll();	
-	
+	List<Topic> findAll();
+
+	Topic createNewVote(Vote vote, Topic topic);	
 	
 }

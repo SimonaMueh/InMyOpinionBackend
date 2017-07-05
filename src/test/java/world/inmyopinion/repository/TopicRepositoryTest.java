@@ -2,6 +2,8 @@ package world.inmyopinion.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.time.LocalDateTime;
+
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -43,18 +45,20 @@ public class TopicRepositoryTest {
 	@Test
 	public void findByTextIgnoreCaseContaining(){
 		assertThat(repository.findByTextIgnoreCaseContaining("I like")).size().isEqualTo(3);
+		assertThat(repository.findByTextIgnoreCaseContaining("hello")).size().isEqualTo(0);
 	}
 	
-//	@Test
-//	public void findByDateCreated(){
-//		LocalDateTime dateCreated = repository.findById(3L).getDateCreated();
-//		assertThat(repository.findByDateCreated(dateCreated)).isEqualTo(repository.findById(3L));
-//	}
+	@Test
+	public void findByDateCreated(){
+		LocalDateTime dateCreated = repository.findById(3L).getDateCreated();
+		assertThat(repository.findByDateCreated(dateCreated).get(0)).isEqualTo(repository.findById(3L));
+	}
 	
 	@Test
 	public void deleteByToken(){
 		repository.deleteByToken("a2873348-029b-4a84-86f5-932aa5f80331");
 		assertThat(repository.findAll().size()).isEqualTo(TOPICS_IN_TEST_DATA -1);
+		assertThat(repository.findByTextIgnoreCaseContaining("tatoos")).size().isEqualTo(0);
 	}
 
 }
