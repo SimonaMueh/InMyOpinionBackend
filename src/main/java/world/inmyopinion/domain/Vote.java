@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Entity
 @Table(name = "votes")

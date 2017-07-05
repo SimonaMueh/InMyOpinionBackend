@@ -1,10 +1,6 @@
 package world.inmyopinion.repository;
 
-import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.transaction.Transactional;
 
@@ -15,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import world.inmyopinion.domain.Topic;
 import world.inmyopinion.repository.TopicRepository;
 
 @RunWith(SpringRunner.class)
@@ -50,10 +45,16 @@ public class TopicRepositoryTest {
 		assertThat(repository.findByTextIgnoreCaseContaining("I like")).size().isEqualTo(3);
 	}
 	
+//	@Test
+//	public void findByDateCreated(){
+//		LocalDateTime dateCreated = repository.findById(3L).getDateCreated();
+//		assertThat(repository.findByDateCreated(dateCreated)).isEqualTo(repository.findById(3L));
+//	}
+	
 	@Test
-	public void findByDateCreated(){
-		LocalDateTime dateCreated = repository.findById(3L).getDateCreated();
-		assertThat(repository.findByDateCreated(dateCreated))
+	public void deleteByToken(){
+		repository.deleteByToken("a2873348-029b-4a84-86f5-932aa5f80331");
+		assertThat(repository.findAll().size()).isEqualTo(TOPICS_IN_TEST_DATA -1);
 	}
 
 }
