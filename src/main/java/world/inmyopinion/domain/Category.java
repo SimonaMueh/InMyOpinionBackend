@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -27,12 +29,15 @@ public class Category implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@JsonView(JsonViews.Summary.class)
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@JsonView(JsonViews.Summary.class)
 	@Column(nullable = false, length = 75)
 	private String text;
 	
+	@JsonView(JsonViews.Detail.class)
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Topic> topics = new ArrayList<>();
 	

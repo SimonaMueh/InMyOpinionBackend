@@ -17,7 +17,7 @@ import world.inmyopinion.domain.Topic;
 import world.inmyopinion.service.TopicService;
 
 @RestController
-@RequestMapping("/api/topics")
+@RequestMapping("/topics")
 public class TopicController {
 
 	private final TopicService topicService;
@@ -25,14 +25,12 @@ public class TopicController {
 	
 	@Autowired
 	public TopicController(TopicService topicService){
-		System.out.println("Du ficker");
 		this.topicService = topicService;
 	}
 	
 	@JsonView(JsonViews.Summary.class)
 	@GetMapping
 	public List<Topic> retrieveAllTopics(){
-		System.out.println("At home");
 	   	return topicService.findAll();
 	}
 	
@@ -42,6 +40,7 @@ public class TopicController {
 		return topicService.findById(id);
 	}
 	
+	@JsonView(JsonViews.Summary.class)
 	@GetMapping(value="/search", params="query")
 	@ResponseBody
 	public List <Topic> searchTopic(@RequestParam("query") String query){

@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -91,5 +92,9 @@ public class Topic implements Serializable {
 		getVotes().add(vote);
 	}
 	
+	@PrePersist
+    protected void prePersist() {
+        this.dateCreated = LocalDateTime.now();
+    }
 
 }
