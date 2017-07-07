@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonView;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,6 +31,7 @@ public class Vote implements Serializable {
 	@ManyToOne
 	private Topic topic;
 	
+	@JsonView(JsonViews.Summary.class)
 	@Column(nullable = false)
 	private Boolean selection;
 	

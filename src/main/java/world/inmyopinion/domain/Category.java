@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonView;
 
 import lombok.Data;
@@ -37,7 +38,8 @@ public class Category implements Serializable {
 	@Column(nullable = false, length = 75)
 	private String text;
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Summary.class)
+	@JsonBackReference
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Topic> topics = new ArrayList<>();
 	

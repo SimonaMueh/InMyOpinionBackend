@@ -44,7 +44,7 @@ public class Topic implements Serializable {
 	@ManyToOne
 	private Category category;
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Summary.class)
 	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
 	private List<Vote> votes = new ArrayList<>();
 	
