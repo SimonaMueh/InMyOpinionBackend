@@ -40,7 +40,7 @@ public class Topic implements Serializable {
 	@Column(nullable = false, length = 254)
 	private String text;
 	
-	@JsonView(JsonViews.Summary.class)
+//	@JsonView(JsonViews.Summary.class)
 	@ManyToOne
 	private Category category;
 	

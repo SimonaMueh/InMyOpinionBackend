@@ -39,7 +39,7 @@ public class Category implements Serializable {
 	private String text;
 	
 	@JsonView(JsonViews.Summary.class)
-	@JsonBackReference
+//	@JsonBackReference
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Topic> topics = new ArrayList<>();
 	

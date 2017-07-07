@@ -35,7 +35,8 @@ public class Vote implements Serializable {
 	@Column(nullable = false)
 	private Boolean selection;
 	
-	@Column(nullable = false)
+//	@Column(nullable = false)
+	@Column
 	private String ip;
 	
 	@Column(name = "date_created", updatable = false, nullable = false)
