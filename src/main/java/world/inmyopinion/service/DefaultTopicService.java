@@ -57,6 +57,11 @@ public class DefaultTopicService implements TopicService {
 		return repository.findAll();
 	}
 	
+	public Topic createNew(Topic topic) {
+		topic.setId(null);
+		return repository.save(topic);
+	}
+	
 	@Override
 	public Topic createNewVote(Vote vote, Topic topic) {
 		topic.addVote(vote);

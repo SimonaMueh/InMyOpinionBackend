@@ -24,7 +24,7 @@ public interface TopicService {
 	
 	void deleteByToken(String token);
 	
-//	Topic createNew(Topic topic);
+    Topic createNew(Topic topic);
 	
 	List<Topic> findAll();
 
