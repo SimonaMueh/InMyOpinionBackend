@@ -56,8 +56,7 @@ public class Topic implements Serializable {
 	@JsonView(JsonViews.Summary.class)
     @Column(name = "date_created", updatable = false, nullable = false)
     private LocalDateTime dateCreated = LocalDateTime.now();
-    
-   
+	
 	
 	public Topic() {
 		

@@ -2,6 +2,7 @@ package world.inmyopinion.web;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -53,8 +54,9 @@ public class CategoryController {
 	 public void createNew(@RequestBody Map<String, String> json, @PathVariable Long id){
 		System.out.println(json);	
 		//improve for random Number later...for now we leave it like this
-		int randomNum = ThreadLocalRandom.current().nextInt(0, 10 + 1);
-		String token = ""+randomNum;
+//		int randomNum = ThreadLocalRandom.current().nextInt(0, 10 + 1);
+//		String token = ""+randomNum;
+		String token = UUID.randomUUID().toString();
 		System.out.println("this is the token: " + token);
 		Category category = this.categoryService.findById(id);
 		System.out.println("this is the category: " + category);
