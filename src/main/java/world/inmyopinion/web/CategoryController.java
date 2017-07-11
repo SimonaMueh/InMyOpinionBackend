@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -50,12 +51,10 @@ public class CategoryController {
 	}
 	
 	@JsonView(JsonViews.Detail.class)
+	@ResponseBody
 	@PostMapping(value = "/{id}/topic")
-	 public void createNew(@RequestBody Map<String, String> json, @PathVariable Long id){
+	 public Topic createNew(@RequestBody Map<String, String> json, @PathVariable Long id){
 		System.out.println(json);	
-		//improve for random Number later...for now we leave it like this
-//		int randomNum = ThreadLocalRandom.current().nextInt(0, 10 + 1);
-//		String token = ""+randomNum;
 		String token = UUID.randomUUID().toString();
 		System.out.println("this is the token: " + token);
 		Category category = this.categoryService.findById(id);
@@ -63,10 +62,12 @@ public class CategoryController {
 		Topic userTopic = new Topic((json.get("text")), category, token);
 		System.out.println("this is the userTopic: " + userTopic);
 		category.addTopic(userTopic);
-		this.topicService.createNew(userTopic);
+		return this.topicService.createNew(userTopic);
 		
 //		public Topic( String text, Category category, String token);
 	}
+	
+
 	
 
 

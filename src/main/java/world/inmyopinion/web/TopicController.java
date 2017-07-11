@@ -49,6 +49,7 @@ public class TopicController {
 	@JsonView(JsonViews.Detail.class)
 	@GetMapping("/{id}")
 	public Topic retrieveTopicById(@PathVariable Long id ) {
+		System.out.println(topicService.findById(id));
 		return topicService.findById(id);
 	}
 	

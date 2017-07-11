@@ -57,7 +57,6 @@ public class Topic implements Serializable {
     @Column(name = "date_created", updatable = false, nullable = false)
     private LocalDateTime dateCreated = LocalDateTime.now();
 	
-	
 	public Topic() {
 		
 	}

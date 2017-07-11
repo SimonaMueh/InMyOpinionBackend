@@ -39,8 +39,8 @@ dependencies {
     compile('com.h2database:h2')
 //    runtime('com.h2database:h2')
 
-    compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonDateTimeVersion}')
-    compile('org.hibernate:hibernate-java8:${hibernateVersion}')
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonDateTimeVersion}")
+    compile("org.hibernate:hibernate-java8:${hibernateVersion}")
 
 
 
