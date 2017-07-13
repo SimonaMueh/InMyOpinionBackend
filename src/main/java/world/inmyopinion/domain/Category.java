@@ -38,7 +38,7 @@ public class Category implements Serializable {
 	@Column(nullable = false, length = 75)
 	private String text;
 	
-	@JsonView(JsonViews.Summary.class)
+//	@JsonView(JsonViews.Summary.class)
 //	@JsonBackReference
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Topic> topics = new ArrayList<>();

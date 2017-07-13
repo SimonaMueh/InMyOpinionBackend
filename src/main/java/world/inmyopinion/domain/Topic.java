@@ -40,7 +40,7 @@ public class Topic implements Serializable {
 	@Column(nullable = false, length = 254)
 	private String text;
 	
-//	@JsonView(JsonViews.Summary.class)
+	@JsonView(JsonViews.Summary.class)
 	@ManyToOne
 	private Category category;
 	
@@ -49,7 +49,6 @@ public class Topic implements Serializable {
 	private List<Vote> votes = new ArrayList<>();
 	
 	@JsonView(JsonViews.Detail.class)
-	//Token length? and Type?
 	@Column(nullable = false)
 	private String token;
 	

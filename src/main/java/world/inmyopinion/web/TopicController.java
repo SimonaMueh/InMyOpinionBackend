@@ -61,8 +61,9 @@ public class TopicController {
 	}
 	
 	@JsonView(JsonViews.Detail.class)
+	@ResponseBody
 	@PostMapping(value = "/{id}/vote")
-	 public void createNew(@RequestBody Map<String, String> json, @PathVariable Long id, HttpServletRequest request){
+	 public Vote createNew(@RequestBody Map<String, String> json, @PathVariable Long id, HttpServletRequest request){
 		//get IP address
 		System.out.println(request.getRemoteAddr());
 		System.out.println(json);
@@ -71,7 +72,7 @@ public class TopicController {
 		Vote userVote = new Vote(topic, Boolean.parseBoolean(json.get("selection")));
 		System.out.println(userVote);
 		topic.addVote(userVote);
-		this.voteService.createNew(userVote);
+		return this.voteService.createNew(userVote);
 	}
 	
 	
