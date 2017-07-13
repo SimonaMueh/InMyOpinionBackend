@@ -29,6 +29,7 @@ public class Vote implements Serializable {
 	@GeneratedValue (strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@JsonView(JsonViews.Vote.class)
 	@ManyToOne
 	private Topic topic;
 	
@@ -37,9 +38,11 @@ public class Vote implements Serializable {
 	private Boolean selection;
 	
 //	@Column(nullable = false)
+	@JsonView(JsonViews.Vote.class)
 	@Column
 	private String ip;
 	
+	@JsonView(JsonViews.Vote.class)
 	@Column(name = "date_created", updatable = false, nullable = false)
 	private LocalDateTime dateCreated = LocalDateTime.now();
    

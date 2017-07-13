@@ -40,19 +40,19 @@ public class Topic implements Serializable {
 	@Column(nullable = false, length = 254)
 	private String text;
 	
-	@JsonView(JsonViews.Summary.class)
+	@JsonView(JsonViews.Topic.class)
 	@ManyToOne
 	private Category category;
 	
-	@JsonView(JsonViews.Summary.class)
+	@JsonView(JsonViews.Topic.class)
 	@OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
 	private List<Vote> votes = new ArrayList<>();
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Topic.class)
 	@Column(nullable = false)
 	private String token;
 	
-	@JsonView(JsonViews.Summary.class)
+	@JsonView(JsonViews.Topic.class)
     @Column(name = "date_created", updatable = false, nullable = false)
     private LocalDateTime dateCreated = LocalDateTime.now();
 	

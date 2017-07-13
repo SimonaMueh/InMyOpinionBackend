@@ -40,13 +40,13 @@ public class TopicController {
 		this.voteService = voteService;
 	}
 	
-	@JsonView(JsonViews.Summary.class)
+	@JsonView(JsonViews.Topic.class)
 	@GetMapping
 	public List<Topic> retrieveAllTopics(){
 	   	return topicService.findAll();
 	}
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Topic.class)
 	@GetMapping("/{id}")
 	public Topic retrieveTopicById(@PathVariable Long id ) {
 		System.out.println(topicService.findById(id));
@@ -60,7 +60,7 @@ public class TopicController {
 		return topicService.findByTextIgnoreCaseContaining(query);
 	}
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Vote.class)
 	@ResponseBody
 	@PostMapping(value = "/{id}/vote")
 	 public Vote createNew(@RequestBody Map<String, String> json, @PathVariable Long id, HttpServletRequest request){

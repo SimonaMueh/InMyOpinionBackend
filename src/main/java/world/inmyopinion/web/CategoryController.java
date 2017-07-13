@@ -38,19 +38,19 @@ public class CategoryController {
 		this.topicService = topicService;
 	}
 	
-	@JsonView(JsonViews.Summary.class)
+	@JsonView(JsonViews.Category.class)
 	@GetMapping
 	public List<Category> retrieveAllCategories(){
 	   	return categoryService.findAll();
 	}
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Category.class)
 	@GetMapping("/{id}")
 	public Category retrieveTopicById(@PathVariable Long id ) {
 		return categoryService.findById(id);
 	}
 	
-	@JsonView(JsonViews.Detail.class)
+	@JsonView(JsonViews.Topic.class)
 	@ResponseBody
 	@PostMapping(value = "/{id}/topic")
 	 public Topic createNew(@RequestBody Map<String, String> json, @PathVariable Long id){
